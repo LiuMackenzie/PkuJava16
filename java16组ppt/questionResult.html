@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+</head>
+
+<body>
+<!--header-->
+<div class="header">
+	<div class="container">
+		<div class="logo">
+		<h1><a href="index.html">
+			JAVA 16组
+		</a></h1>
+		</div>
+		<div class="top-nav">
+			<span class="menu"> </span>
+			<ul>
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="ListServlet?type=all" >解答问题</a></li>
+					<li><a href="questionResult.html" >问题分析结果</a></li>
+					<li><a href="courseResult.html" >课程分析结果</a></li>
+					
+				</ul>
+						<!--script-->
+					<script>
+						$("span.menu").click(function(){
+							$(".top-nav ul").slideToggle(500, function(){
+							});
+						});
+				</script>				
+		</div>
+		
+	</div>
+<!---->
+</div>
+    <div id="main" style="height:400px;"></div>
+    <script src="echarts-all.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['JAVA','C/C++/C#','PHP','数据库','Android&IOS','Linux']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+           data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'JAVA',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[
+            345, 343, 570, 644, 679, 697, 721, 730, 676, 1095, 777, 1113]
+        },
+        {
+            name:'C/C++/C#',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[130, 139, 176, 231, 285, 309, 440, 473, 304, 621, 450, 558]
+        },
+        {
+            name:'PHP',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[391,273,445,540,495,474,369,437,338,516,362,624]
+        },
+        {
+           name:'数据库',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[40,36,63,82,86,86,78,96,80,109,91,135]
+        },
+        {
+             name:'Android&IOS',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data:[350,314,524,612,707,543,475,489,382,555,468,607]
+        },
+        {
+     name:'Linux',
+            type:'line',
+            stack: '问题数目',
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+           data:[53,43,86,108,86,71,83,116,93,130,92,153]
+        },
+        
+    ]
+};
+                    
+        myChart.setOption(option);
+    </script>
+   
+</body>
+</html>
